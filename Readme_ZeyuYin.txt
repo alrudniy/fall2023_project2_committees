@@ -1,4 +1,4 @@
-// minor changes
+// This is a test
 # Project 2 - Faculty Committee App
 
 
