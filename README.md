@@ -1,5 +1,5 @@
 # Project 1 - Faculty Committee App
-
+Emily Marette
 
 
 ## Getting started
