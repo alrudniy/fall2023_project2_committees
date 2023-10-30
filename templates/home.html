@@ -2,6 +2,41 @@
 <html>
 <head>
     <title>Home Page</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            transition: background-color 0.5s, color 0.5s;
+        }
+    
+        /* Default light mode styles */
+        body[data-theme='light'] {
+            background-color: #ffffff;
+            color: #000000;
+        }
+    
+        body[data-theme='dark'] {
+            background-color: #121212;
+            color: #ffffff;
+        }
+    
+        .theme-toggle {
+            display: inline-block;
+            cursor: pointer;
+            padding: 10px 20px;
+            margin: 10px 0;
+            background-color: #007BFF;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+    
+        .theme-toggle:hover {
+            background-color: #0056b3;
+        }
+    </style>
+
 </head>
 <body>
     <h1>Welcome to the Home Page</h1>
@@ -10,5 +45,22 @@
         <li><a href="/loginP">Sign in Professors</a></li>
         <li><a href="/loginA">Sign in Administrator</a></li>
     </ul>
+
+    <button class="theme-toggle" onclick="toggleTheme()">Toggle Dark Mode</button>
+
+    <script>
+        function toggleTheme() {
+            let currentTheme = document.body.getAttribute("data-theme");
+            if (currentTheme === "dark") {
+                document.body.setAttribute("data-theme", "light");
+            } else {
+                document.body.setAttribute("data-theme", "dark");
+            }
+        }
+    
+        // Set default theme to light mode
+        document.body.setAttribute("data-theme", "light");
+    </script>
+    
 </body>
 </html>
