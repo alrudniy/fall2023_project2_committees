@@ -26,7 +26,7 @@ def home():
 
 @app.route('/loginButtonP', methods= ['GET', 'POST'])
 def loginButtonP():
-    return render_template('mainP.html')
+    return render_template('homeP.html')
 
 
 @app.route('/seeHistoryButtonP', methods= ['GET', 'POST'])
@@ -50,7 +50,7 @@ def loginButtonA():
 
 @app.route('/loginA')
 def loginA():
-    return render_template('mainA.html')
+    return render_template('homeA.html')
 
 
 @app.route('/page3')
