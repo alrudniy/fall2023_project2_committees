@@ -43,7 +43,9 @@
 
 <h1>Administrator Home Page</h1>
 
-<button class="theme-toggle" onclick="toggleTheme()">Toggle Dark Mode</button>
+<!-- (Optional) Add line 48 if you want the toggle button on this page too -->
+<!-- Delete line 48 if you dont want the toggle button on this page -->
+<!--<button class="theme-toggle" onclick="toggleTheme()">Toggle Dark Mode</button> -->
 
 <script>
         function toggleTheme() {
@@ -55,10 +57,10 @@
                 document.body.setAttribute("data-theme", "dark");
                 localStorage.setItem("theme", "dark");
             }
-}
+        }
 
-let storedTheme = localStorage.getItem("theme") || "light";
-document.body.setAttribute("data-theme", storedTheme);
+        let storedTheme = localStorage.getItem("theme") || "light";
+        document.body.setAttribute("data-theme", storedTheme);
 
     </script>
 
