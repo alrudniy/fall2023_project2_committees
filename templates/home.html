@@ -3,13 +3,6 @@
 <head>
     <title>Home Page</title>
 
-    <label class="switch">
-        <input type="checkbox" id="themeToggle">
-        <span class="slider"></span>
-    </label>
-
-    <span id="themeLabel">Dark Theme</span>
-
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -100,8 +93,13 @@
         <li><a href="/loginA">Sign in Administrator</a></li>
     </ul>
 
-    <button class="theme-toggle" onclick="toggleTheme()">Toggle Dark Mode</button>
+    <!-- Toggle Switch -->
+    <label class="switch">
+        <input type="checkbox" id="themeToggle">
+        <span class="slider"></span>
+    </label>
 
+    <span id="themeLabel">Dark Theme</span>
 
     <script>
         document.getElementById("themeToggle").addEventListener('change', function() {
