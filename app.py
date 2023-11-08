@@ -1,88 +1,53 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
-
-app = Flask(__name__)
-
+app = Flask(__name)
 
 # Configure the SQLAlchemy database URI
 app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://p3:Mtmqn584@34.136.218.122:3306/p3_courses"
 
-
 # Create a SQLAlchemy instance
 db = SQLAlchemy(app)
 
-
-# Define a simple database model (optional)
+# Define a simple database model
 class Course(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50))
+    name = db.Column(db.String(50)
 
+# Create the database tables
+db.create_all()
 
-
-@app.route('/', methods= ['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def home():
-    return render_template('home.html')
+    if request.method == 'POST':
+        # Example: Create a new course
+        course_name = request.form['course_name']
+        new_course = Course(name=course_name)
+        db.session.add(new_course)
+        db.session.commit()
 
-@app.route('/seeHistoryButtonP', methods= ['GET', 'POST'])
+    courses = Course.query.all()
+    return render_template('home.html', courses=courses)
+
+@app.route('/seeHistoryButtonP', methods=['GET', 'POST'])
 def seeHistoryButtonP():
-    return render_template('seeHistoryP.html')
+    # Read data from the database
+    courses = Course.query.all()
+    return render_template('seeHistoryP.html', courses=courses)
 
-@app.route('/seeHistoryButtonA', methods= ['GET', 'POST'])
+@app.route('/seeHistoryButtonA', methods=['GET', 'POST'])
 def seeHistoryButtonA():
-    return render_template('seeHistoryA.html')
+    # Read data from the database
+    courses = Course.query.all()
+    return render_template('seeHistoryA.html', courses=courses)
 
-
-
-@app.route('/loginButtonP', methods= ['GET', 'POST'])
-def loginButtonP():
-    return render_template('homeP.html')
-
-@app.route('/loginP')
-def loginP():
-    return render_template('loginP.html')
-
-
-
-@app.route('/loginButtonA', methods= ['GET', 'POST'])
-def loginButtonA():
-    return render_template('homeA.html')
-
-@app.route('/loginA')
-def loginA():
-    return render_template('loginA.html')
-
-
-
-@app.route('/homeButtonA', methods= ['GET', 'POST'])
-def homeButtonA():
-    return render_template('homeA.html')
-
-@app.route('/homeButtonP', methods= ['GET', 'POST'])
-def homeButtonP():
-    return render_template('homeP.html')
-
-
-
-@app.route('/applyButtonA', methods= ['GET', 'POST'])
-def applyButtonA():
-    return render_template('applyA.html')
-
-@app.route('/applyButtonP', methods= ['GET', 'POST'])
-def applyButtonP():
-    return render_template('applyP.html')   
-
-
-
-@app.route('/settingsButtonA', methods= ['GET', 'POST'])
-def settingsButtonA():
-    return render_template('settingsA.html')
-
-@app.route('/settingsButtonP', methods= ['GET', 'POST'])
-def settingsButtonP():
-    return render_template('settingsP.html')
-
-
+@app.route('/delete_course/<int:course_id>', methods=['GET'])
+def delete_course(course_id):
+    # Example: Delete a course
+    course = Course.query.get(course_id)
+    db.session.delete(course)
+    db.session.commit()
+    return redirect(url_for('seeHistoryButtonP'))
 
 if __name__ == '__main__':
     app.run(debug=True)
