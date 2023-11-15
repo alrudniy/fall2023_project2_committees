@@ -5,5 +5,40 @@
         <input type="submit" value="Home" name="/homeP"/>
     </form>
     <h1>This is the Professor See History Page</h1>
+    <div class="container">
+        <h1 class="my-4">Faculty Committee</h1>
+        <table class="table table-striped">
+        <thead>
+        <tbody>
+        <tr>
+          <th>Course ID </th>
+          <th>Subject Code</th>
+          <th>Course Number</th>
+          <th>College </th>
+          <th>Department Code</th>
+          <th>Division Code</th>
+          <th>Short Title</th>
+          <th>Long Title</th>
+          <th>Last Term Offered</th>
+  
+  
+        </tr>
+      </thead>
+        {% for item in courses_list %}
+        <tr>
+          <td>{{ item.course_id }}</td>
+          <td>{{ item.subject_code }}</td>
+          <td>{{ item.course_number }}</td>
+          <td>{{ item.college }}</td>
+          <td>{{ item.department_code }}</td>
+          <td>{{ item.division_code }}</td>
+          <td>{{ item.short_title }}</td>
+          <td>{{ item.long_title }}</td>
+          <td>{{ item.last_term_offered }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    </div>  
 </body>
 </html>
