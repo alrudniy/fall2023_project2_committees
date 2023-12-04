@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 
 # Configure the SQLAlchemy database URI
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://p3:Mtmqn584@34.136.218.122:3306/p3_courses"
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://p2:Rhrew281@34.136.218.122/p2_committee"
 
 
 # Create a SQLAlchemy instance
