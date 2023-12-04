@@ -1,13 +1,18 @@
 from flask import Flask, render_template
+from flask_mysqldb import MySQL
 from flask_sqlalchemy import SQLAlchemy
 
 
 app = Flask(__name__)
 
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'p2'
+app.config['MYSQL_PASSWORD'] = 'Rherw281'
+app.config['MYSQL_DB'] = 'p2_committee'
 
 # Configure the SQLAlchemy database URI
 app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://p3:Mtmqn584@34.136.218.122:3306/p3_courses"
-
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
 
 # Create a SQLAlchemy instance
 db = SQLAlchemy(app)
@@ -17,12 +22,16 @@ db = SQLAlchemy(app)
 class Course(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50))
-
+    email = db.Column(db.String(100))
 
 
 @app.route('/', methods= ['GET', 'POST'])
 def home():
-    return render_template('home.html')
+    cur = cur.mysql.connection.cursor()
+    cur.execute("Select * FROM faculty")
+    fetchdata = cur.fetchall() 
+    cur.close()
+    return render_template('home.html', data = fetchdata)
 
 @app.route('/seeHistoryButtonP', methods= ['GET', 'POST'])
 def seeHistoryButtonP():
