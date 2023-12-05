@@ -2,6 +2,23 @@
 <html>
 <head>
     <title>Administrator Login</title>
+
+    <head>
+        <style>
+                
+            /* Default light mode styles */
+            body[data-theme='light'] {
+                background-color: #ffffff;
+                 color: #000000;
+            }
+            
+            body[data-theme='dark'] {
+                background-color: #121212;
+                color: #ffffff;
+            }
+                
+        </style>
+    </head>
 </head>
 <body>
     <form method="post" action="/">
@@ -13,5 +30,12 @@
     <form method="post" action="/loginButtonA">
         <input type="submit" value="Login" name="/loginButtonAOG"/>
     </form>
+
+    <script>
+        // Apply theme based on stored preference or default to light mode
+        let storedTheme = localStorage.getItem("theme") || "light";
+        document.body.setAttribute("data-theme", storedTheme);
+    </script>
+
 </body>
 </html>
