@@ -1,5 +1,21 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <style>
+                
+        /* Default light mode styles */
+        body[data-theme='light'] {
+            background-color: #ffffff;
+            color: #000000;
+        }
+            
+        body[data-theme='dark'] {
+            background-color: #121212;
+            color: #ffffff;
+        }
+                
+    </style>
+</head>
 <body>
     <form method="post" action="/settingsButtonP">
         <input type="submit" value="Settings" name="/settingsButtonP" style="background-color: #3498db; color: #fff; padding: 10px 20px; font-size: 16px; cursor: pointer; border: none;">
@@ -11,5 +27,12 @@
     <form method="post" action="/applyButtonP">
         <input type="submit" value="Apply" name="/applyButtonP" style="background-color: #3498db; color: #fff; padding: 10px 20px; font-size: 16px; cursor: pointer; border: none;">
     </form>
+
+    <script>
+        // Apply theme based on stored preference or default to light mode
+        let storedTheme = localStorage.getItem("theme") || "light";
+        document.body.setAttribute("data-theme", storedTheme);
+    </script>
+
 </body>
 </html>

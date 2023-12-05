@@ -4,6 +4,21 @@
     <title>Home Page</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+                
+        /* Default light mode styles */
+       body[data-theme='light'] {
+           background-color: #ffffff;
+           color: #000000;
+       }
+       
+       body[data-theme='dark'] {
+           background-color: #121212;
+           color: #ffffff;
+       }
+               
+    </style>
 </head>
 <body>
     <h1>Welcome to the Home Page</h1>
@@ -12,5 +27,11 @@
         <li><a href="/loginP">Sign in Professors</a></li>
         <li><a href="/loginA">Sign in Administrator</a></li>
     </ul>
+
+    <script>
+        // Apply theme based on stored preference or default to light mode
+        let storedTheme = localStorage.getItem("theme") || "light";
+        document.body.setAttribute("data-theme", storedTheme);
+    </script>
 </body>
 </html>
