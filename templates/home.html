@@ -1,76 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.topnav {
-  overflow: hidden;
-  background-color: #333;
-}
-
-.topnav a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.topnav a.active {
-  background-color: #04AA6D;
-  color: white;
-}
-
-footer {
-    background-color: #f8f8f8;
-    padding: 20px;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-footer p {
-    margin: 0;
-    font-family: 'Times New Roman', Times, serif; 
-    font-size: 14px; 
-    color: #555; 
-    position: relative; 
-    top: 10px; 
-}
-
-</style>
+    <title>Home Page</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../static/home.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/home.css">
 </head>
 <body>
-
-<div class="topnav">
-  <a></a>
-</div>
-
-<div style="padding-left:16px">
-  <h2>Welcome to the Home Page of Faculty Committee</h2>
-  <ul>
-    <li><a href="/loginP">Sign in Professors</a></li>
-    <li><a href="/loginA">Sign in Administrator</a></li>
-</ul>
-</div>
-
-
-
-<footer>
-    <p>&copy; 2023 DREW</p>
-</footer>
-
+    <h1>Welcome to the Faculty Committee Application.</h1>
+    <p>Use the links below to login to your account.</p>
+    <ul>
+        <li><a href="/loginP">Professor Sign In</a></li>
+        <li><a href="/loginA">Administrator Sign In</a></li>
+    </ul>
 </body>
 </html>
