@@ -1,3 +1,4 @@
+#this is for database connection 
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from app import app, db, faculty
@@ -20,6 +21,8 @@ class faculty(db.Model):
     LastName = db.Column(db.String(50))
     Department = db.Column(db.String(50))
     DepartmentPosition = db.Column(db.String(50))
+
+#DATABASE CONNECTION END, SEE BOTTOM
 
 @app.route('/', methods= ['GET', 'POST'])
 def home():
@@ -83,8 +86,9 @@ def settingsButtonA():
 def settingsButtonP():
     return render_template('settingsP.html')
 
+#DB CONNECT
 with app.app_context():
     db.create_all()
-
+#DB CONNECT END
 if __name__ == '__main__':
     app.run(debug=True)
