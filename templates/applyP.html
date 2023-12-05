@@ -1,9 +1,21 @@
+{% include 'nav.html' %}
 <!DOCTYPE html>
 <html>
+    <style>body[data-theme='light'] {
+        background-color: #ffffff;
+        color: #000000;
+    }
+        
+    body[data-theme='dark'] {
+        background-color: #1e7537;
+        color: #ffffff;
+    }</style>
 <body>
-    <form method="post" action="/homeButtonP">
-        <input type="submit" value="Home" name="/homeP"/>
-    </form>
     <h1>This is the Professor Application Page</h1>
+    <script>
+        // Apply theme based on stored preference or default to light mode
+        let storedTheme = localStorage.getItem("theme") || "light";
+        document.body.setAttribute("data-theme", storedTheme);
+      </script>
 </body>
 </html>
