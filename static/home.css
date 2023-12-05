@@ -1,6 +1,47 @@
 body {
 margin: 0;
-font-family: Arial, Helvetica, sans-serif;
+font-family: Exo;
+}
+
+h1{
+    margin-top: 2%;
+    font-weight: bold;
+    margin-left: 15%;
+}
+
+body, input{
+    font-family: Exo;
+    color: lightgray;
+    background-color: #1e7537;
+}
+
+#loginP{
+    margin-left: 270%;
+}
+
+#loginA{
+    margin-left: 240%;
+}
+
+input{
+    background-color: #1c1c9c; 
+    color: #fff; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    border-radius: 20px;
+    border-color: gray;
+}
+
+form{
+    display: inline-block;
+    margin-top: 1%;
+}
+
+p{
+    margin-left: 38%;
+    margin-top: 1.5%;
+    margin-bottom: 1.5%;
 }
 
 .topnav {

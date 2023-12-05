@@ -5,12 +5,42 @@ input{
     font-size: 16px; 
     cursor: pointer; 
     border-radius: 20px;
+    border: none;
 }
 
 body, input{
-    font-family: Lato;
+    font-family: Exo;
+    color: lightgray;
+    background-color: #1e7537;
+}
+
+input{
+    background-color: #1c1c9c; 
+    color: #fff; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    border-radius: 20px;
+    border-color: gray;
+}
+
+form{
+    display: inline-block;
+    margin-top: 1%;
+}
+
+#history{
+    margin-left: 410%;
+}
+
+#apply{
+    margin-left: 620%;
 }
 
 h1{
     margin-left: 37%;
+}
+
+p{
+    margin-left: 20%;
 }

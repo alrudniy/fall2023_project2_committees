@@ -4,15 +4,19 @@
     <title>Home Page</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../static/home.css">
+    <link href='https://fonts.googleapis.com/css?family=Exo' rel='stylesheet'><body>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/home.css">
 </head>
 <body>
     <h1>Welcome to the Faculty Committee Application.</h1>
     <p>Use the links below to login to your account.</p>
-    <ul>
-        <li><a href="/loginP">Professor Sign In</a></li>
-        <li><a href="/loginA">Administrator Sign In</a></li>
-    </ul>
+    
+    <form method="post" action="/loginButtonP">
+        <input id='loginP' type="submit" value="Professor Sign In" name="/seeHistoryButtonP">
+    </form>
+    <form method="post" action="/loginButtonA">
+        <input id='loginA' type="submit" value="Administrator Sign In" name="/applyButtonP">
+    </form>
 </body>
 </html>

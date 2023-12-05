@@ -38,19 +38,17 @@ def seeHistoryButtonA():
 def loginButtonP():
     return render_template('homeP.html')
 
-@app.route('/loginP')
-def loginP():
-    return render_template('loginP.html')
-
-
+# @app.route('/loginP')
+# def loginP():
+#     return render_template('loginP.html')
 
 @app.route('/loginButtonA', methods= ['GET', 'POST'])
 def loginButtonA():
     return render_template('homeA.html')
 
-@app.route('/loginA')
-def loginA():
-    return render_template('loginA.html')
+# @app.route('/loginA')
+# def loginA():
+#     return render_template('loginA.html')
 
 @app.route('/about')
 def about():
@@ -64,7 +62,9 @@ def homeButtonA():
 def homeButtonP():
     return render_template('homeP.html')
 
-
+@app.route('/', methods= ['GET', 'POST'])
+def logoutButton():
+    return render_template('home.html')
 
 @app.route('/applyButtonA', methods= ['GET', 'POST'])
 def applyButtonA():
