@@ -1,15 +1,19 @@
+{% include 'nav.html' %}
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet" href="../static/homeP.css">
+<link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 <body>
-    <form method="post" action="/settingsButtonP">
-        <input type="submit" value="Settings" name="/settingsButtonP" style="background-color: #3498db; color: #fff; padding: 10px 20px; font-size: 16px; cursor: pointer; border: none;">
-    </form>
-    <h1>Professor Home Page</h1>
+    <!-- <form method="post" action="/settingsButtonP">
+        <input type="submit" value="Settings" name="/settingsButtonP">
+    </form> -->
+    <h1>Welcome, Professors!</h1>
+    <p>Now that you have logged in, this is where you can view you previous involvements or apply for a fresh one.</p>
     <form method="post" action="/seeHistoryButtonP">
-        <input type="submit" value="See History" name="/seeHistoryButtonP" style="background-color: #3498db; color: #fff; padding: 10px 20px; font-size: 16px; cursor: pointer; border: none;">
+        <input type="submit" value="See History" name="/seeHistoryButtonP">
     </form>
     <form method="post" action="/applyButtonP">
-        <input type="submit" value="Apply" name="/applyButtonP" style="background-color: #3498db; color: #fff; padding: 10px 20px; font-size: 16px; cursor: pointer; border: none;">
+        <input type="submit" value="Apply" name="/applyButtonP">
     </form>
 </body>
 </html>

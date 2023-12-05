@@ -52,7 +52,9 @@ def loginButtonA():
 def loginA():
     return render_template('loginA.html')
 
-
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 @app.route('/homeButtonA', methods= ['GET', 'POST'])
 def homeButtonA():
