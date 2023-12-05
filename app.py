@@ -1,24 +1,25 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
-
+from app import app, db, faculty
 
 app = Flask(__name__)
 
 
 # Configure the SQLAlchemy database URI
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://p2:Rhrew281@34.136.218.122/p2_committee"
-
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://p2:Rhrew281@34.136.218.122:3306/p2_committee"
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Create a SQLAlchemy instance
 db = SQLAlchemy(app)
 
 
 # Define a simple database model (optional)
-class Course(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50))
-
-
+class faculty(db.Model):
+    facultyID = db.Column(db.Integer, primary_key=True)
+    FirstName = db.Column(db.String(50))
+    LastName = db.Column(db.String(50))
+    Department = db.Column(db.String(50))
+    DepartmentPosition = db.Column(db.String(50))
 
 @app.route('/', methods= ['GET', 'POST'])
 def home():
@@ -82,7 +83,8 @@ def settingsButtonA():
 def settingsButtonP():
     return render_template('settingsP.html')
 
-
+with app.app_context():
+    db.create_all()
 
 if __name__ == '__main__':
     app.run(debug=True)
