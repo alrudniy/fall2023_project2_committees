@@ -3,6 +3,8 @@
 <html>
 <head>
     <link rel="stylesheet" href="../static/settingsP.css">
+    <link href='https://fonts.googleapis.com/css?family=Exo' rel='stylesheet'><body>
+
     <title>Settings</title>
 </head>
 <body>
@@ -12,7 +14,7 @@
         <span class="slider"></span>
     </label>
 
-    <span id="themeLabel">Dark Theme</span>
+    <span id="themeLabel">Light Theme</span>
 
     <script>
         document.getElementById("themeToggle").addEventListener('change', function() {
@@ -20,11 +22,11 @@
             if(this.checked) {
                 document.body.setAttribute("data-theme", "dark");
                 localStorage.setItem("theme", "dark");
-                labelElement.textContent = "Light Theme";  // Change label to "Light Theme" when dark mode is on
+                labelElement.textContent = "Dark Theme";  // Change label to "Dark Theme" when dark mode is on
             } else {
                 document.body.setAttribute("data-theme", "light");
                 localStorage.setItem("theme", "light");
-                labelElement.textContent = "Dark Theme";  // Change label back to "Dark Theme" when dark mode is off
+                labelElement.textContent = "Light Theme";  // Change label back to "Light Theme" when dark mode is off
             }
         });
             // Apply theme based on stored preference or default to light mode
@@ -32,7 +34,7 @@
                 document.body.setAttribute("data-theme", storedTheme);
             if (storedTheme === "dark") {
                 document.getElementById("themeToggle").checked = true;
-                document.getElementById("themeLabel").textContent = "Light Theme";
+                document.getElementById("themeLabel").textContent = "Dark Theme";
 }
     </script>
 </body>

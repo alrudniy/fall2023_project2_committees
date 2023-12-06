@@ -1,24 +1,33 @@
+#this is for database connection 
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
-
+import mysql.connector
+# from app import app, db, faculty
 
 app = Flask(__name__)
 
 
 # Configure the SQLAlchemy database URI
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://p2:Rhrew281@34.136.218.122/p2_committee"
-
+# app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://p2:Rhrew281@34.136.218.122:3306/p2_committee"
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Create a SQLAlchemy instance
-db = SQLAlchemy(app)
+# db = SQLAlchemy(app)
 
+# db=mysql.connector.connect(
+#     host='localhost',
+#     user='p2',
+#     password='Rhrew281',
+#     database='p2_committee'
+# )
 
 # Define a simple database model (optional)
-class Course(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50))
-
-
+# class faculty(db.Model):
+#     facultyID = db.Column(db.Integer, primary_key=True)
+#     FirstName = db.Column(db.String(50))
+#     LastName = db.Column(db.String(50))
+#     Department = db.Column(db.String(50))
+#     DepartmentPosition = db.Column(db.String(50))
 
 @app.route('/', methods= ['GET', 'POST'])
 def home():
@@ -31,8 +40,6 @@ def seeHistoryButtonP():
 @app.route('/seeHistoryButtonA', methods= ['GET', 'POST'])
 def seeHistoryButtonA():
     return render_template('seeHistoryA.html')
-
-
 
 @app.route('/loginButtonP', methods= ['GET', 'POST'])
 def loginButtonP():
@@ -74,8 +81,6 @@ def applyButtonA():
 def applyButtonP():
     return render_template('applyP.html')   
 
-
-
 @app.route('/settingsButtonA', methods= ['GET', 'POST'])
 def settingsButtonA():
     return render_template('settingsA.html')
@@ -84,7 +89,9 @@ def settingsButtonA():
 def settingsButtonP():
     return render_template('settingsP.html')
 
-
+#DB CONNECT
+# with app.app_context():
+#     db.create_all()
 
 if __name__ == '__main__':
     app.run(debug=True)
