@@ -1,28 +1,21 @@
-#this is for database connection 
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
-from app import app, db, faculty
 
 app = Flask(__name__)
 
-
 # Configure the SQLAlchemy database URI
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://p2:Rhrew281@34.136.218.122:3306/p2_committee"
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://p2:Rhrew281@34.136.218.122/p2_committee"
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # To suppress a warning
 
 # Create a SQLAlchemy instance
 db = SQLAlchemy(app)
 
-
-# Define a simple database model (optional)
-class faculty(db.Model):
+# Define the Faculty model
+class Faculty(db.Model):
     facultyID = db.Column(db.Integer, primary_key=True)
     FirstName = db.Column(db.String(50))
     LastName = db.Column(db.String(50))
     Department = db.Column(db.String(50))
-    DepartmentPosition = db.Column(db.String(50))
-
-#DATABASE CONNECTION END, SEE BOTTOM
 
 @app.route('/', methods= ['GET', 'POST'])
 def home():
@@ -86,9 +79,8 @@ def settingsButtonA():
 def settingsButtonP():
     return render_template('settingsP.html')
 
-#DB CONNECT
 with app.app_context():
     db.create_all()
-#DB CONNECT END
+
 if __name__ == '__main__':
     app.run(debug=True)

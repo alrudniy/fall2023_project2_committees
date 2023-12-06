@@ -2,17 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faculty Page</title>
+    <title>Display Faculty Members</title>
 </head>
 <body>
-    <h1>Faculty Members</h1>
 
-    <ul>
-        {% for faculty_member in faculty_members %}
-            <li>{{ faculty_member.FirstName }} {{ faculty_member.LastName }} - {{ faculty_member.Department }}</li>
-        {% endfor %}
-    </ul>
+    <h2>Faculty List</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Faculty ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Department</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for faculty_member in faculty_members %}
+                <tr>
+                    <td>{{ faculty_member.facultyID }}</td>
+                    <td>{{ faculty_member.FirstName }}</td>
+                    <td>{{ faculty_member.LastName }}</td>
+                    <td>{{ faculty_member.Department }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
 </body>
 </html>
