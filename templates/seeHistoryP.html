@@ -17,5 +17,10 @@ body[data-theme='dark'] {
           <li>{{ faculty.FirstName }} {{ faculty.LastName }} - {{ faculty.Department }}</li>
       {% endfor %}
   </ul>
+  <script>
+    // Apply theme based on stored preference or default to light mode
+    let storedTheme = localStorage.getItem("theme") || "light";
+    document.body.setAttribute("data-theme", storedTheme);
+  </script>
 </body>
 </html>
