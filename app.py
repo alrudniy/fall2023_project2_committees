@@ -23,6 +23,7 @@ def home():
 
 @app.route('/seeHistoryButtonP', methods= ['GET', 'POST'])
 def seeHistoryButtonP():
+    faculty_list = Faculty.query.all()
     return render_template('seeHistoryP.html')
 
 @app.route('/seeHistoryButtonA', methods= ['GET', 'POST'])
